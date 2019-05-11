@@ -8,9 +8,10 @@ def parse():
 
     sheet.cell_value(0, 0)
 
-    col_vals = []
-    for i in range(sheet.ncols):
-        col_vals.append(sheet.cell_value(0, i))
-    print col_vals
+    colidx = dict((sheet.cell(0, i).value, i) for i in range(sheet.ncols))
+    print colidx
+    return { sheet.cell(1, colidx["First"]).value : sheet.cell(1, colidx["Second"]).value }
+
+
 
 

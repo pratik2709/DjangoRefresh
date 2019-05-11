@@ -11,10 +11,9 @@ from .serializers import PollSerializer
 class PollView(APIView):
 
     def get(self, request):
-        excelParser.parse()
+        dat = excelParser.parse()
         serializer = PollSerializer(Poll.objects.all(), many=True)
-        response = {"hello": "world"}
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(dat, status=status.HTTP_200_OK)
 
     def post(self, request, format=None):
 
