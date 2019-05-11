@@ -122,6 +122,9 @@ APPEND_SLASH = True
 
 STATIC_URL = '/static/'
 
+import sys
+sys.path.append('..')
+
 from mongoengine import connect
 
 MONGO_DATABASE_NAME = 'testdb'
