@@ -4,4 +4,4 @@ switched to db testdb
 > show dbs
 admin   0.03125GB
 local   (empty)
-
+pip install -r dep.pip

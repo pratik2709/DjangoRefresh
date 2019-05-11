@@ -7,15 +7,17 @@ from batchJob import excelParser
 from .models import Poll
 from .serializers import PollSerializer
 
+
 class PollView(APIView):
 
     def get(self, request):
+        excelParser.parse()
         serializer = PollSerializer(Poll.objects.all(), many=True)
         response = {"hello": "world"}
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, format=None):
-        excelParser.main1()
+
         data = request.data
         serializer = PollSerializer(data=data)
         if serializer.is_valid():
